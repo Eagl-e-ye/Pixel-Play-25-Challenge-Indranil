@@ -15,7 +15,7 @@ The design of this project was done with care so that it runs optimally and is c
  Choosen ResNet 101 was the reason of its advanced residual connections which mitigate the problem of vanishing gradients in deep networks.
  Resnet comprised preliminary convolutional and max pooling layers, deep residual layers, and a fully connected layer for final classification.
 * Pre-trained Weights: Used ImageNet-pre-trained weights and let the network use the previously gained knowledge for feature extraction.
-3.Training Strategy:
+3. Training Strategy:
 *Loss Function: Cross-entropy loss was considered to evaluate the task accuracy.
 *Optimizer: SGD used for weight updates
 *Learning Rate Scheduler:
@@ -24,12 +24,12 @@ The design of this project was done with care so that it runs optimally and is c
 *Freezing Layers:
 * All layers except last convolutional block and fully connected head were frozen during initial training.
 *It ensured that the network maintained features learned and only updated higher layers for the given dataset.
-4.Explanation and Robustness:
+4. Explanation and Robustness:
 *Random transformations guaranteed that the model learned robust features through the exposition to different orientations and perspectives.
 * At testing, it had employed a voting mechanism for increased reliability of prediction through averaging several predictions per image.
-5.Output Generation:
+5. Output Generation:
 *Final predictions were saved in CSV format for evaluation and submission
-6.Hardware:
+6. Hardware:
 * The training process employed Kaggle's P100 GPU, which delivered enough computational power to train the model computationally efficiently despite kernel crashes.
 Important Implementation Basics:
 •Freezing and Unfreezing Layers: In this approach, the freezing and unfreezing of layers played a crucial role in balancing computations and performance. It helped accelerate convergence with the goal of avoiding accuracy loss.
