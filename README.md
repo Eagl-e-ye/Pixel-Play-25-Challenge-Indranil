@@ -28,14 +28,14 @@ The design of this project was done with care so that it runs optimally and is c
 *Random transformations guaranteed that the model learned robust features through the exposition to different orientations and perspectives.
 * At testing, it had employed a voting mechanism for increased reliability of prediction through averaging several predictions per image.
 5. Output Generation:
-*Final predictions were saved in CSV format for evaluation and submission
+* Final predictions were saved in CSV format for evaluation and submission
 6. Hardware:
 * The training process employed Kaggle's P100 GPU, which delivered enough computational power to train the model computationally efficiently despite kernel crashes.
 Important Implementation Basics:
-•Freezing and Unfreezing Layers: In this approach, the freezing and unfreezing of layers played a crucial role in balancing computations and performance. It helped accelerate convergence with the goal of avoiding accuracy loss.
-•Learning Rate Scheduling: Adaptive learning rate adjustment led to stable and effective training over 25 epochs.
-•Data Augmentation: Random cropping, flipping, and rotation highly enhanced the generalization capacity of the model.
-•Prediction Voting Mechanism: This reduced the effects of outliers' predictions and enhanced the trustability of final outcomes.
+• Freezing and Unfreezing Layers: In this approach, the freezing and unfreezing of layers played a crucial role in balancing computations and performance. It helped accelerate convergence with the goal of avoiding accuracy loss.
+• Learning Rate Scheduling: Adaptive learning rate adjustment led to stable and effective training over 25 epochs.
+• Data Augmentation: Random cropping, flipping, and rotation highly enhanced the generalization capacity of the model.
+• Prediction Voting Mechanism: This reduced the effects of outliers' predictions and enhanced the trustability of final outcomes.
 
 Results
 
