@@ -1,7 +1,7 @@
 Pixel Play’25 Challenge
 Overview
 This project focuses on classifying animal images into 50 distinct classes using ResNet101, a deep convolutional neural network renowned for its robust feature extraction capabilities. The goal was to achieve high accuracy while minimizing computational costs by leveraging pretrained weights and employing advanced training strategies such as freezing and unfreezing certain layers.
-________________________________________
+
 The implementation of this project was carefully structured to ensure optimal performance and computational efficiency. Below is a breakdown of the vital aspects of the code and their roles:
 1.	Data Loading and Preprocessing:
 o	Custom Dataset Creation: Images were loaded into a custom dataset that returned data in NumPy format. This dataset enabled random access during every epoch and was loaded in batches of size 16.
@@ -36,11 +36,11 @@ Vital Implementation Highlights:
 •	Learning Rate Scheduling: The adaptive adjustment of the learning rate ensured stable and effective training over 25 epochs.
 •	Data Augmentation: Random cropping, flipping, and rotation significantly improved the generalization capability of the model.
 •	Prediction Voting Mechanism: This approach minimized the impact of outlier predictions and boosted the reliability of the final results.
-________________________________________
+
 Results
 •	Seen Dataset (15% evaluation split): Achieved 91-93% accuracy.
 •	Unseen Dataset (test): Achieved 80% accuracy.
-________________________________________
+
 Challenges and Solutions
 1.	Zero-Shot Learning:
 o	Difficulty in finding reliable resources.
@@ -55,16 +55,12 @@ o	Debugged carefully after updates to maintain performance.
 5.	Batch Size Optimization:
 o	Balanced accuracy and computation speed through experiments.
 
-________________________________________
-
 Learning Outcomes
 •	Gained hands-on experience with Kaggle's computational resources.
 •	Mastered fine-tuning of pretrained models for specific tasks.
 •	Developed expertise in data augmentation and learning rate scheduling.
 •	Enhanced debugging skills and understanding of model behavior.
 •	Applied advanced OOP concepts to create modular and reusable code structures.
-
-________________________________________
 
 Future Work
 •	Explore zero-shot learning techniques.
