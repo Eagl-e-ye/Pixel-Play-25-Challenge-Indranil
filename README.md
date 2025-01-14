@@ -7,13 +7,13 @@ The design of this project was done with care so that it runs optimally and is c
 * Custom Dataset Creation: Images were loaded into a custom dataset that returned data in NumPy format. This dataset allowed for random access during every epoch and was loaded in batches of size 16.
 * Data Splitting: 15% of the data was kept for evaluation and the rest was used for training. Test data has been processed independently with randomised transformations.
 * Image Transformations:
--- Random cropping at between 70%-100% then resized to 300x300.
--- Random horizontal flipping plus rotation at between ±30 degrees for enhanced generalization.
--- Pixel values normalized with mean [0.485, 0.456, 0.406] and standard deviation [0.229, 0.224, 0.225].
+  -- Random cropping at between 70%-100% then resized to 300x300.
+  -- Random horizontal flipping plus rotation at between ±30 degrees for enhanced generalization.
+  -- Pixel values normalized with mean [0.485, 0.456, 0.406] and standard deviation [0.229, 0.224, 0.225].
 2. Model Development:
 * Architecture:
-- Choosen ResNet 101 was the reason of its advanced residual connections which mitigate the problem of vanishing gradients in deep networks.
-- Resnet comprised preliminary convolutional and max pooling layers, deep residual layers, and a fully connected layer for final classification.
+  - Choosen ResNet 101 was the reason of its advanced residual connections which mitigate the problem of vanishing gradients in deep networks.
+  - Resnet comprised preliminary convolutional and max pooling layers, deep residual layers, and a fully connected layer for final classification.
 * Pre-trained Weights: Used ImageNet-pre-trained weights and let the network use the previously gained knowledge for feature extraction.
 3. Training Strategy:
 *Loss Function: Cross-entropy loss was considered to evaluate the task accuracy.
