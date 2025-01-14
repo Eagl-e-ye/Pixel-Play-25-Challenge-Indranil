@@ -4,33 +4,33 @@ This project focuses on classifying animal images into 50 distinct classes using
 
 The implementation of this project was carefully structured to ensure optimal performance and computational efficiency. Below is a breakdown of the vital aspects of the code and their roles:
 1.	Data Loading and Preprocessing:
-o	Custom Dataset Creation: Images were loaded into a custom dataset that returned data in NumPy format. This dataset enabled random access during every epoch and was loaded in batches of size 16.
-o	Data Splitting: 15% of the data was reserved for evaluation, and the remaining was used for training. Test data was handled separately with randomized transformations.
-o	Image Transformations:
+*	Custom Dataset Creation: Images were loaded into a custom dataset that returned data in NumPy format. This dataset enabled random access during every epoch and was loaded in batches of size 16.
+*	Data Splitting: 15% of the data was reserved for evaluation, and the remaining was used for training. Test data was handled separately with randomized transformations.
+*	Image Transformations:
 	Random cropping between 70%-100% and resizing to 300x300.
 	Random horizontal flipping and rotation between ±30 degrees to improve generalization.
 	Pixel values were normalized using the mean [0.485, 0.456, 0.406] and standard deviation [0.229, 0.224, 0.225].
 2.	Model Development:
-o	Architecture:
+*	Architecture:
 	ResNet101 was chosen for its advanced residual connections that mitigate the vanishing gradient problem in deep networks.
 	The network includes initial convolutional and max-pooling layers, followed by residual blocks and a fully connected layer for classification.
-o	Pretrained Weights: ImageNet-pretrained weights were used to initialize the network, leveraging its prior knowledge for feature extraction.
+*	Pretrained Weights: ImageNet-pretrained weights were used to initialize the network, leveraging its prior knowledge for feature extraction.
 3.	Training Strategy:
-o	Loss Function: Cross-entropy loss was employed to measure classification accuracy.
-o	Optimizer: Stochastic Gradient Descent (SGD) was used for weight updates.
-o	Learning Rate Scheduler:
+*	Loss Function: Cross-entropy loss was employed to measure classification accuracy.
+*	Optimizer: Stochastic Gradient Descent (SGD) was used for weight updates.
+*	Learning Rate Scheduler:
 	A MultiStepLR scheduler was implemented to dynamically adjust the learning rate.
 	The learning rate was reduced by a factor of 0.9 after the 16th and 21st epochs based on loss graph observations.
-o	Freezing Layers:
+*	Freezing Layers:
 	All layers except the last convolutional block and fully connected head were frozen during initial training.
 	This allowed the network to retain learned features while adapting higher layers to the specific dataset.
 4.	Explainability and Robustness:
-o	Random transformations ensured that the model learned robust features by exposing it to varied orientations and perspectives.
-o	A voting mechanism was used during testing to enhance prediction reliability by averaging multiple predictions per image.
+*	Random transformations ensured that the model learned robust features by exposing it to varied orientations and perspectives.
+*	A voting mechanism was used during testing to enhance prediction reliability by averaging multiple predictions per image.
 5.	Output Generation:
-o	Final predictions were saved in a CSV format for evaluation and submission.
+*	Final predictions were saved in a CSV format for evaluation and submission.
 6.	Hardware:
-o	The training process utilized Kaggle’s P100 GPU, which provided sufficient computational power to train the model efficiently despite occasional kernel crashes.
+*	The training process utilized Kaggle’s P100 GPU, which provided sufficient computational power to train the model efficiently despite occasional kernel crashes.
 Vital Implementation Highlights:
 •	Freezing and Unfreezing Layers: This technique was pivotal in balancing computational efficiency and performance, enabling faster convergence without sacrificing accuracy.
 •	Learning Rate Scheduling: The adaptive adjustment of the learning rate ensured stable and effective training over 25 epochs.
@@ -43,17 +43,17 @@ Results
 
 Challenges and Solutions
 1.	Zero-Shot Learning:
-o	Difficulty in finding reliable resources.
-o	Focused on transfer learning techniques instead.
+*	Difficulty in finding reliable resources.
+*	Focused on transfer learning techniques instead.
 2.	Computation Power:
-o	Training on Kaggle GPU P100 took 2-3 hours, causing delays.
-o	Optimized model configurations to reduce runtime.
+*	Training on Kaggle GPU P100 took 2-3 hours, causing delays.
+*	Optimized model configurations to reduce runtime.
 3.	Imbalanced Dataset:
-o	Addressed misclassification (e.g., cows as Dalmatians) using data augmentation techniques.
+*	Addressed misclassification (e.g., cows as Dalmatians) using data augmentation techniques.
 4.	Accuracy Fluctuations:
-o	Debugged carefully after updates to maintain performance.
+*	Debugged carefully after updates to maintain performance.
 5.	Batch Size Optimization:
-o	Balanced accuracy and computation speed through experiments.
+*	Balanced accuracy and computation speed through experiments.
 
 Learning Outcomes
 •	Gained hands-on experience with Kaggle's computational resources.
