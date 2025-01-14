@@ -22,10 +22,10 @@ The design of this project was done with care so that it runs optimally and is c
   - MultiStepLR scheduler was implemented so that to get the scheduler at runtime
   - factor 0.9 learning rate dropping after epochs 16 and 21 to have the desired convergence in loss graph observations.
 * Freezing Layers:
-* All layers except last convolutional block and fully connected head were frozen during initial training.
-*It ensured that the network maintained features learned and only updated higher layers for the given dataset.
+  - All layers except last convolutional block and fully connected head were frozen during initial training.
+  - It ensured that the network maintained features learned and only updated higher layers for the given dataset.
 4. Explanation and Robustness:
-*Random transformations guaranteed that the model learned robust features through the exposition to different orientations and perspectives.
+* Random transformations guaranteed that the model learned robust features through the exposition to different orientations and perspectives.
 * At testing, it had employed a voting mechanism for increased reliability of prediction through averaging several predictions per image.
 5. Output Generation:
 * Final predictions were saved in CSV format for evaluation and submission
