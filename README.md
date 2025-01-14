@@ -38,6 +38,7 @@ Important Implementation Basics:
 •Prediction Voting Mechanism: This reduced the effects of outliers' predictions and enhanced the trustability of final outcomes.
 
 Results
+
 • Seen Dataset (15% evaluation split): It obtained an accuracy of 91-93%.
 • Unseen Dataset (test): It achieved 80% accuracy.
 
