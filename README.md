@@ -37,10 +37,10 @@ Important Implementation Basics:
 * Data Augmentation: Random cropping, flipping, and rotation highly enhanced the generalization capacity of the model.
 * Prediction Voting Mechanism: This reduced the effects of outliers' predictions and enhanced the trustability of final outcomes.
 
-Results
+Results:
 
-• Seen Dataset (15% evaluation split): It obtained an accuracy of 91-93%.
-• Unseen Dataset (test): It achieved 80% accuracy.
+* Seen Dataset (15% evaluation split): It obtained an accuracy of 91-93%.
+* Unseen Dataset (test): It achieved 80% accuracy.
 
 Challenges and Solutions
 
