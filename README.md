@@ -43,7 +43,6 @@ Results:
 * Unseen Dataset (test): It achieved 80% accuracy.
 
 Challenges and Solutions
-
 1. Zero-Shot Learning:
 * Dilute in search for trustful sources.
 * Held onto techniques for transfer learning.
@@ -58,7 +57,7 @@ Challenges and Solutions
 * Experimental optimizations for fine-tuned accuracy with speed in computation.
 
 Future Work
-•	Zero-shot learning techniques
-•	EfficientNet architecture.
-•	Dataset imbalance - more advanced augmentation strategies.
-•	More computational efficiency with further optimization in order to get a faster training.
+*	Zero-shot learning techniques
+*	EfficientNet architecture.
+*	Dataset imbalance - more advanced augmentation strategies.
+*	More computational efficiency with further optimization in order to get a faster training.
