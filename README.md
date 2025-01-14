@@ -3,19 +3,20 @@ Overview
 This project focuses on classifying animal images into 50 distinct classes using ResNet101, a deep convolutional neural network renowned for its robust feature extraction capabilities. The goal was to achieve high accuracy while minimizing computational costs by using pretrained weights and employing advanced training strategies such as freezing and unfreezing of some layers.
 
 The design of this project was done with care so that it runs optimally and is computationally efficient. Here is a detailed breakdown of the most important aspects of the code and their functions:
-1. Data Loading and Preprocessing:
+1. Importing necessary modules
+2. Data Loading and Preprocessing:
 * Custom Dataset Creation: Images were loaded into a custom dataset that returned data in NumPy format. This dataset allowed for random access during every epoch and was loaded in batches of size 16.
 * Data Splitting: 15% of the data was kept for evaluation and the rest was used for training. Test data has been processed independently with randomised transformations.
 * Image Transformations:
   - Random cropping at between 70%-100% then resized to 300x300.
   - Random horizontal flipping plus rotation at between ±30 degrees for enhanced generalization.
   - Pixel values normalized with mean [0.485, 0.456, 0.406] and standard deviation [0.229, 0.224, 0.225].
-2. Model Development:
+3. Model Development:
 * Architecture:
   - Choosen ResNet 101 was the reason of its advanced residual connections which mitigate the problem of vanishing gradients in deep networks.
   - Resnet comprised preliminary convolutional and max pooling layers, deep residual layers, and a fully connected layer for final classification.
 * Pre-trained Weights: Used ImageNet-pre-trained weights and let the network use the previously gained knowledge for feature extraction.
-3. Training Strategy:
+4. Training Strategy:
 * Loss Function: Cross-entropy loss was considered to evaluate the task accuracy.
 * Optimizer: SGD used for weight updates
 * Learning Rate Scheduler:
@@ -24,12 +25,12 @@ The design of this project was done with care so that it runs optimally and is c
 * Freezing Layers:
   - All layers except last convolutional block and fully connected head were frozen during initial training.
   - It ensured that the network maintained features learned and only updated higher layers for the given dataset.
-4. Explanation and Robustness:
+5. Explanation and Robustness:
 * Random transformations guaranteed that the model learned robust features through the exposition to different orientations and perspectives.
 * At testing, it had employed a voting mechanism for increased reliability of prediction through averaging several predictions per image.
-5. Output Generation:
+6. Output Generation:
 * Final predictions were saved in CSV format for evaluation and submission
-6. Hardware:
+7. Hardware:
 * The training process employed Kaggle's P100 GPU, which delivered enough computational power to train the model computationally efficiently despite kernel crashes.
 Important Implementation Basics:
 * Freezing and Unfreezing Layers: In this approach, the freezing and unfreezing of layers played a crucial role in balancing computations and performance. It helped accelerate convergence with the goal of avoiding accuracy loss.
