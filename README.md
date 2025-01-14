@@ -42,6 +42,7 @@ Results
 •Unseen Dataset (test): It achieved 80% accuracy.
 
 Challenges and Solutions
+
 1.Zero-Shot Learning:
 *Dilute in search for trustful sources.
 *Held onto techniques for transfer learning.
