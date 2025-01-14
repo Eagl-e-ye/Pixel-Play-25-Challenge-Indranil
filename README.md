@@ -45,17 +45,17 @@ Results
 Challenges and Solutions
 
 1. Zero-Shot Learning:
-*Dilute in search for trustful sources.
-*Held onto techniques for transfer learning.
+* Dilute in search for trustful sources.
+* Held onto techniques for transfer learning.
 2. Computational Power:
-*It took around 2-3 hours to train on Kaggle's GPU P100.
-*Optimized model configurations for runtime.
+* It took around 2-3 hours to train on Kaggle's GPU P100.
+* Optimized model configurations for runtime.
 3. Imbalanced Dataset:
-*Data augmentation to correct misclassification (cow and Dalmatians).
+* Data augmentation to correct misclassification (cow and Dalmatians).
 4. Accuracy Variability:
-*Careful debugging after updates to keep the accuracy and performance optimized.
+* Careful debugging after updates to keep the accuracy and performance optimized.
 5. Batch Size Optimization
- *Experimental optimizations for fine-tuned accuracy with speed in computation.
+* Experimental optimizations for fine-tuned accuracy with speed in computation.
 
 Future Work
 •	Zero-shot learning techniques
