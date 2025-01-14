@@ -16,9 +16,9 @@ The design of this project was done with care so that it runs optimally and is c
   - Resnet comprised preliminary convolutional and max pooling layers, deep residual layers, and a fully connected layer for final classification.
 * Pre-trained Weights: Used ImageNet-pre-trained weights and let the network use the previously gained knowledge for feature extraction.
 3. Training Strategy:
-*Loss Function: Cross-entropy loss was considered to evaluate the task accuracy.
-*Optimizer: SGD used for weight updates
-*Learning Rate Scheduler:
+* Loss Function: Cross-entropy loss was considered to evaluate the task accuracy.
+* Optimizer: SGD used for weight updates
+* Learning Rate Scheduler:
   - MultiStepLR scheduler was implemented so that to get the scheduler at runtime
   - factor 0.9 learning rate dropping after epochs 16 and 21 to have the desired convergence in loss graph observations.
 * Freezing Layers:
