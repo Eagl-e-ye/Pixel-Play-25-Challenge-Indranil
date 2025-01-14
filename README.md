@@ -1,70 +1,62 @@
-Pixel Play’25 Challenge
+Pixel Play'25 Challenge
 Overview
-This project focuses on classifying animal images into 50 distinct classes using ResNet101, a deep convolutional neural network renowned for its robust feature extraction capabilities. The goal was to achieve high accuracy while minimizing computational costs by leveraging pretrained weights and employing advanced training strategies such as freezing and unfreezing certain layers.
+This project focuses on classifying animal images into 50 distinct classes using ResNet101, a deep convolutional neural network renowned for its robust feature extraction capabilities. The goal was to achieve high accuracy while minimizing computational costs by using pretrained weights and employing advanced training strategies such as freezing and unfreezing of some layers.
 
-The implementation of this project was carefully structured to ensure optimal performance and computational efficiency. Below is a breakdown of the vital aspects of the code and their roles:
-1.	Data Loading and Preprocessing:
-*	Custom Dataset Creation: Images were loaded into a custom dataset that returned data in NumPy format. This dataset enabled random access during every epoch and was loaded in batches of size 16.
-*	Data Splitting: 15% of the data was reserved for evaluation, and the remaining was used for training. Test data was handled separately with randomized transformations.
-*	Image Transformations:
-	Random cropping between 70%-100% and resizing to 300x300.
-	Random horizontal flipping and rotation between ±30 degrees to improve generalization.
-	Pixel values were normalized using the mean [0.485, 0.456, 0.406] and standard deviation [0.229, 0.224, 0.225].
-2.	Model Development:
-*	Architecture:
-	ResNet101 was chosen for its advanced residual connections that mitigate the vanishing gradient problem in deep networks.
-	The network includes initial convolutional and max-pooling layers, followed by residual blocks and a fully connected layer for classification.
-*	Pretrained Weights: ImageNet-pretrained weights were used to initialize the network, leveraging its prior knowledge for feature extraction.
-3.	Training Strategy:
-*	Loss Function: Cross-entropy loss was employed to measure classification accuracy.
-*	Optimizer: Stochastic Gradient Descent (SGD) was used for weight updates.
-*	Learning Rate Scheduler:
-	A MultiStepLR scheduler was implemented to dynamically adjust the learning rate.
-	The learning rate was reduced by a factor of 0.9 after the 16th and 21st epochs based on loss graph observations.
-*	Freezing Layers:
-	All layers except the last convolutional block and fully connected head were frozen during initial training.
-	This allowed the network to retain learned features while adapting higher layers to the specific dataset.
-4.	Explainability and Robustness:
-*	Random transformations ensured that the model learned robust features by exposing it to varied orientations and perspectives.
-*	A voting mechanism was used during testing to enhance prediction reliability by averaging multiple predictions per image.
-5.	Output Generation:
-*	Final predictions were saved in a CSV format for evaluation and submission.
-6.	Hardware:
-*	The training process utilized Kaggle’s P100 GPU, which provided sufficient computational power to train the model efficiently despite occasional kernel crashes.
-Vital Implementation Highlights:
-•	Freezing and Unfreezing Layers: This technique was pivotal in balancing computational efficiency and performance, enabling faster convergence without sacrificing accuracy.
-•	Learning Rate Scheduling: The adaptive adjustment of the learning rate ensured stable and effective training over 25 epochs.
-•	Data Augmentation: Random cropping, flipping, and rotation significantly improved the generalization capability of the model.
-•	Prediction Voting Mechanism: This approach minimized the impact of outlier predictions and boosted the reliability of the final results.
+The design of this project was done with care so that it runs optimally and is computationally efficient. Here is a detailed breakdown of the most important aspects of the code and their functions:
+1. Data Loading and Preprocessing:
+* Custom Dataset Creation: Images were loaded into a custom dataset that returned data in NumPy format. This dataset allowed for random access during every epoch and was loaded in batches of size 16.
+* Data Splitting: 15% of the data was kept for evaluation and the rest was used for training. Test data has been processed independently with randomised transformations.
+* Image Transformations:
+ Random cropping at between 70%-100% then resized to 300x300.
+ Random horizontal flipping plus rotation at between ±30 degrees for enhanced generalization.
+ Pixel values normalized with mean [0.485, 0.456, 0.406] and standard deviation [0.229, 0.224, 0.225].
+2. Model Development:
+* Architecture:
+ Choosen ResNet 101 was the reason of its advanced residual connections which mitigate the problem of vanishing gradients in deep networks.
+ Resnet comprised preliminary convolutional and max pooling layers, deep residual layers, and a fully connected layer for final classification.
+* Pre-trained Weights: Used ImageNet-pre-trained weights and let the network use the previously gained knowledge for feature extraction.
+3.Training Strategy:
+*Loss Function: Cross-entropy loss was considered to evaluate the task accuracy.
+*Optimizer: SGD used for weight updates
+*Learning Rate Scheduler:
+MultiStepLR scheduler was implemented so that to get the scheduler at runtime
+factor 0.9 learning rate dropping after epochs 16 and 21 to have the desired convergence in loss graph observations.
+*Freezing Layers:
+* All layers except last convolutional block and fully connected head were frozen during initial training.
+*It ensured that the network maintained features learned and only updated higher layers for the given dataset.
+4.Explanation and Robustness:
+*Random transformations guaranteed that the model learned robust features through the exposition to different orientations and perspectives.
+* At testing, it had employed a voting mechanism for increased reliability of prediction through averaging several predictions per image.
+5.Output Generation:
+*Final predictions were saved in CSV format for evaluation and submission
+6.Hardware:
+* The training process employed Kaggle's P100 GPU, which delivered enough computational power to train the model computationally efficiently despite kernel crashes.
+Important Implementation Basics:
+•Freezing and Unfreezing Layers: In this approach, the freezing and unfreezing of layers played a crucial role in balancing computations and performance. It helped accelerate convergence with the goal of avoiding accuracy loss.
+•Learning Rate Scheduling: Adaptive learning rate adjustment led to stable and effective training over 25 epochs.
+•Data Augmentation: Random cropping, flipping, and rotation highly enhanced the generalization capacity of the model.
+•Prediction Voting Mechanism: This reduced the effects of outliers' predictions and enhanced the trustability of final outcomes.
 
 Results
-•	Seen Dataset (15% evaluation split): Achieved 91-93% accuracy.
-•	Unseen Dataset (test): Achieved 80% accuracy.
+•Seen Dataset (15% evaluation split): It obtained an accuracy of 91-93%.
+•Unseen Dataset (test): It achieved 80% accuracy.
 
 Challenges and Solutions
-1.	Zero-Shot Learning:
-*	Difficulty in finding reliable resources.
-*	Focused on transfer learning techniques instead.
-2.	Computation Power:
-*	Training on Kaggle GPU P100 took 2-3 hours, causing delays.
-*	Optimized model configurations to reduce runtime.
-3.	Imbalanced Dataset:
-*	Addressed misclassification (e.g., cows as Dalmatians) using data augmentation techniques.
-4.	Accuracy Fluctuations:
-*	Debugged carefully after updates to maintain performance.
-5.	Batch Size Optimization:
-*	Balanced accuracy and computation speed through experiments.
-
-Learning Outcomes
-•	Gained hands-on experience with Kaggle's computational resources.
-•	Mastered fine-tuning of pretrained models for specific tasks.
-•	Developed expertise in data augmentation and learning rate scheduling.
-•	Enhanced debugging skills and understanding of model behavior.
-•	Applied advanced OOP concepts to create modular and reusable code structures.
+1.Zero-Shot Learning:
+*Dilute in search for trustful sources.
+*Held onto techniques for transfer learning.
+2.Computational Power:
+*It took around 2-3 hours to train on Kaggle's GPU P100.
+*Optimized model configurations for runtime.
+3.Imbalanced Dataset:
+*Data augmentation to correct misclassification (cow and Dalmatians).
+4.Accuracy Variability:
+*Careful debugging after updates to keep the accuracy and performance optimized.
+5.Batch Size Optimization
+ *Experimental optimizations for fine-tuned accuracy with speed in computation.
 
 Future Work
-•	Explore zero-shot learning techniques.
-•	Experiment with other architectures like EfficientNet.
-•	Address dataset imbalance with advanced augmentation strategies.
-•	Optimize computational efficiency further for faster training.
-
+•	Zero-shot learning techniques
+•	EfficientNet architecture.
+•	Dataset imbalance - more advanced augmentation strategies.
+•	More computational efficiency with further optimization in order to get a faster training.
