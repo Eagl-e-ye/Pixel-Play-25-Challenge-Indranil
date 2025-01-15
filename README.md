@@ -1,3 +1,10 @@
+This repo consists of 4 files, 
+1. readme file
+2. jupyter notebook
+3. detailed report on this project
+4. predicted output in csv named "output_prefiction-20" as maximum accuracy was attained when I computed the output 20th time
+
+
 Pixel Play'25 Challenge
 Overview
 This project focuses on classifying animal images into 50 distinct classes using ResNet101, a deep convolutional neural network renowned for its robust feature extraction capabilities. The goal was to achieve high accuracy while minimizing computational costs by using pretrained weights and employing advanced training strategies such as freezing and unfreezing of some layers.
