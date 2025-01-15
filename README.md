@@ -2,7 +2,7 @@ This repo consists of 4 files,
 1. readme file
 2. jupyter notebook
 3. detailed report on this project
-4. predicted output in csv named "output_prefiction-20" as maximum accuracy was attained when I computed the output 20th time
+4. predicted output in csv named "output_prefiction-16" as maximum accuracy was attained when I computed the output 16th time after 40-50 evaluations
 
 
 Pixel Play'25 Challenge
